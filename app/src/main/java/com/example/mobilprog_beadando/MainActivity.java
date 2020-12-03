@@ -3,19 +3,28 @@ package com.example.mobilprog_beadando;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.mobilprog_beadando.R;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     TextView user_input, sign_Box;
 
     Double num1, num2, answer;
     String sign, val_1, val_2;
     boolean has_Dot;
+
+    SensorManager sm;
+    List<Sensor> sensors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         has_Dot = false;
 
+        sm = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sensors = sm.getSensorList(Sensor.TYPE_ALL);
     }
 
     @SuppressLint("SetTextI18n")
@@ -334,4 +345,71 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onSensorChanged(SensorEvent event)
+    {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
+        {
+            if (event.values[0] > 10 || event.values[1] > 10 || event.values[2] > 10)
+            {
+                user_input.setText(null);
+                sign_Box.setText(null);
+                val_1 = null;
+                val_2 = null;
+                sign = null;
+                has_Dot = false;
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy)
+    {
+
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        sm.registerListener(this,sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        sm.unregisterListener(this);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
