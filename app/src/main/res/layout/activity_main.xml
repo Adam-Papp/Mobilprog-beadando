@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/input_user"
+        android:id="@+id/szamTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5sp"
@@ -25,7 +25,7 @@
         android:textSize="50sp" />
 
     <TextView
-        android:id="@+id/sign_user"
+        android:id="@+id/muveletTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5sp"
@@ -82,7 +82,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn1"
             android:backgroundTint="#534D4D"
-            android:onClick="btn_power"
+            android:onClick="btn_negyzet"
             android:text="xⁿ"
             android:textAllCaps="false"
             android:textColor="@color/WhiteText"
@@ -96,7 +96,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn1"
             android:backgroundTint="#534D4D"
-            android:onClick="btn_root"
+            android:onClick="btn_gyok"
             android:text="√"
             android:textAllCaps="false"
             android:textColor="@color/WhiteText"
@@ -110,7 +110,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn1"
             android:backgroundTint="#534D4D"
-            android:onClick="btn_factorial"
+            android:onClick="btn_faktorialis"
             android:text="!"
             android:textAllCaps="false"
             android:textColor="@color/WhiteText"
@@ -230,7 +230,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn2"
             android:backgroundTint="#534D4D"
-            android:onClick="btn_add"
+            android:onClick="btn_hozzaadas"
             android:text="+"
             android:textColor="@color/WhiteText"
             android:textSize="32sp" />
@@ -243,7 +243,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn2"
             android:backgroundTint="#804F4F"
-            android:onClick="btn_delete"
+            android:onClick="btn_torlesEgyet"
             android:src="@drawable/ic_backspace_black_24dp" />
 
     </LinearLayout>
@@ -303,7 +303,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn2"
             android:backgroundTint="#534D4D"
-            android:onClick="btn_subtract"
+            android:onClick="btn_kivonas"
             android:text="-"
             android:textColor="@color/WhiteText"
             android:textSize="32sp" />
@@ -316,7 +316,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_btn2"
             android:backgroundTint="#804F4F"
-            android:onClick="btn_clear"
+            android:onClick="btn_torles"
             android:text="C"
             android:textColor="@color/WhiteText"
             android:textSize="30sp" />
@@ -394,7 +394,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/background_btn2"
                     android:backgroundTint="#534D4D"
-                    android:onClick="btn_multiply"
+                    android:onClick="btn_szorzas"
                     android:text="×"
                     android:textColor="@color/WhiteText"
                     android:textSize="32sp" />
@@ -408,12 +408,6 @@
                 android:background="#000000"
                 android:orientation="horizontal"
                 android:weightSum="4">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:background="@drawable/background_btn1" />
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless"
@@ -436,7 +430,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/background_btn1"
                     android:backgroundTint="#7E7777"
-                    android:onClick="btn_dot"
+                    android:onClick="btn_pont"
                     android:text="."
                     android:textColor="@color/WhiteText"
                     android:textSize="32sp" />
@@ -449,7 +443,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/background_btn2"
                     android:backgroundTint="#534D4D"
-                    android:onClick="btn_divide"
+                    android:onClick="btn_osztas"
                     android:text="÷"
                     android:textColor="@color/WhiteText"
                     android:textSize="32sp" />
@@ -474,7 +468,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/background_btn2"
                 android:backgroundTint="#804F4F"
-                android:onClick="btn_equal"
+                android:onClick="btn_egyenlo"
                 android:text="="
                 android:textColor="@color/WhiteText"
                 android:textSize="32sp" />
